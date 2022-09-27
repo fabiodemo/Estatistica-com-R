@@ -1,1 +1,3 @@
-languageserver_install()
+View(iris)
+
+library(ggplot2)
