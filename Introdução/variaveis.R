@@ -78,7 +78,7 @@ genero <- as.factor(genero)
 genero
 class(genero)
 
-### TIPO B�SICO DO OBJETO (Comprimento)
+### TIPO BÁSICO DO OBJETO (Comprimento)
  
 length(genero)
 
@@ -88,3 +88,5 @@ length(p)
 q <- "bom dia" 
 length(p)
 
+w <- c("bom dia", "boa tarde", "boa noite")
+length(w)
