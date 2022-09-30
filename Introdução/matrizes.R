@@ -41,3 +41,42 @@ matriz3
 
 matriz4 <- matrix(2:13, nrow=4, byrow=TRUE, dimnames = list(c("Linha1", "Linha2", "Linha3", "Linha4"),c("Coluna1", "Coluna2", "Coluna3")))
 matriz4
+
+# Produto de um número por uma matriz
+produto <- 2 * matriz4
+produto
+
+# Soma e subtração de matrizes
+matriz5 = matrix(c(1, 5, 15, 8), nrow=2, ncol=2, byrow=TRUE)
+matriz5
+matriz6 = matrix(c(2, 4, 6, 10), nrow=2, ncol=2, byrow=TRUE)
+matriz6
+
+matriz5+matriz6
+
+matriz5-matriz6
+
+# Multiplicação matricial
+produto_matriz <- matriz5 %*% matriz6
+produto_matriz
+
+# Média das linhas ou colunas
+matriz5 = matrix(c(1, 5, 15, 8), nrow=2, ncol=2, byrow=TRUE)
+
+media_coluna <- colMeans(matriz5)
+media_coluna
+
+media_linha <- rowMeans(matriz5)
+media_linha
+
+# Soma das linhas ou colunas
+soma_linhas <- rowSums(matriz5)
+soma_linhas
+
+soma_colunas <- colSums(matriz5)
+soma_colunas
+
+# Matriz com caracteres
+matriz7 <- matrix(c("segunda", "terça", "quarta", "quinta"), nrow=2, ncol=2, byrow=FALSE)
+matriz7
+
