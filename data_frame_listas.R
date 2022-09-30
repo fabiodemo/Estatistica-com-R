@@ -39,4 +39,25 @@ ncol(df3)
 dim(df3)
 summary(df3)
 
+df3$Sepal.Length
+
 ### LISTAS ###
+# Podem conter elementos de diferentes tipos (tipo especial de vetor)
+
+nome <- c("Luciano", "Pedro", "Joyce", "Maria")
+idade <- c(36, 38, 27, 29)
+curso <- c("Estatística", "Linguagem R", "Redes Neurais", "Python")
+lista <- list(nome, idade, curso)
+lista
+
+lista[1]
+lista[2]
+lista[3]
+View(lista)
+
+lista2 <- list(nome=c("Luciano", "Pedro", "Joyce", "Maria"),
+                idade=c(36, 38, 27, 29),
+                c("Estatística", "Linguagem R", "Redes Neurais", "Python"))
+lista2
+lista2[3]
+lista2$nome
