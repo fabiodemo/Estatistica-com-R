@@ -12,3 +12,5 @@ print(p)
 # scatter plot
 p2 <- ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
 print(p2)
+
+?ggplot2
