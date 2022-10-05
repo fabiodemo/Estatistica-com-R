@@ -13,13 +13,15 @@ if(!require(dplyr)) install.packages("dplyr")
 library (data.table)
 library(dplyr)
 
-# Alocação de mem?ria
+# Alocação de memória
 #---------------
 memory.limit(24576)
 #------------------
 
-# FORNECENDO DIRET?RIO DO ARQUIVO
-setwd("C:/Users/Luciano/Desktop/Curso_estatistica_R")
+# FORNECENDO DIRETÓRIO DO ARQUIVO
+# setwd("C:/Users/Luciano/Desktop/Curso_estatistica_R")
+setwd("II-Estruturação/dados")
+getwd()
 
 # Carga dos microdados
 
@@ -30,21 +32,21 @@ ENEM_2019 <- data.table::fread(input='MICRODADOS_ENEM_2019.csv',
                                na.strings = " ", 
                                showProgress = TRUE)
 
-# Filtrando apenas os dados do Estado de S?o Paulo
-enem_sp_2019 <- ENEM_2019 %>% filter(SG_UF_RESIDENCIA =="SP")
+# Filtrando apenas os dados do Rio Grande do Sul
+enem_rs_2019 <- ENEM_2019 %>% filter(SG_UF_RESIDENCIA =="RS")
 
 # Selecionando as colunas de interesse
-enem_sp_2019 <- select(enem_sp_2019, NU_INSCRICAO, NU_ANO, NO_MUNICIPIO_RESIDENCIA,
+enem_rs_2019 <- select(enem_rs_2019, NU_INSCRICAO, NU_ANO, NO_MUNICIPIO_RESIDENCIA,
                        SG_UF_RESIDENCIA, NU_IDADE, TP_SEXO, TP_ESTADO_CIVIL, TP_COR_RACA,
                        TP_NACIONALIDADE, TP_ESCOLA, TP_ENSINO, IN_TREINEIRO, CO_ESCOLA,
                        TP_PRESENCA_CN, TP_PRESENCA_CH, TP_PRESENCA_LC, TP_PRESENCA_MT,
                        NU_NOTA_CN, NU_NOTA_CH, NU_NOTA_LC, NU_NOTA_MT, TP_LINGUA,
                        TP_STATUS_REDACAO, NU_NOTA_COMP1, NU_NOTA_COMP2, NU_NOTA_COMP3,
                        NU_NOTA_COMP4, NU_NOTA_COMP5, NU_NOTA_REDACAO)
-View(enem_sp_2019)
+View(enem_rs_2019)
 
 #EXPORTAR ARQUIVO
-write.table(enem_sp_2019, file ="enem_sp_2019.csv", sep = ",")
+write.table(enem_rs_2019, file ="enem_rs_2019.csv", sep = ",")
 
 
 
