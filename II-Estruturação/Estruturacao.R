@@ -47,3 +47,4 @@ View(enem_rs_2019)
 
 #EXPORTAR ARQUIVO
 write.table(enem_rs_2019, file ="enem_rs_2019.csv", sep = ",")
+
