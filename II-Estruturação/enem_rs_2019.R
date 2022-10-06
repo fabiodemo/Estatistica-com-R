@@ -68,3 +68,15 @@ vestibulandos$treineiros <- null
 
 # Exportando o arquivo de treineiros
 write.table(treineiros, file="treineiros.csv", sep=",")
+
+# Criando uma coluna para classificar as presenças
+vestibulandos["presenca"] <- vestibulandos$TP_PRESENCA_CN + vestibulandos$TP_PRESENCA_LC + vestibulandos$TP_PRESENCA_CH + vestibulandos$TP_PRESENCA_MT
+vestibulandos
+
+falta_2dias <- vestibulandos %>% filter(presenca==0) # Faltou em dois dias
+falta_1dias <- vestibulandos %>% filter(presenca==2) # Faltou em um dia
+desclas <- vestibulandos %>% filter(presenca==6) # Desclassificado em um dos dias
+desclas_2vezes <- vestibulandos %>% filter(presenca==8) # Desclassificado em doidias
+
+# Selecionando apenas os que compareceram nos dois dias
+vestibulandos_presentes <- vestibulandos %>% filter(presenca==4)
