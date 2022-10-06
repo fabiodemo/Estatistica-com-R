@@ -80,3 +80,38 @@ desclas_2vezes <- vestibulandos %>% filter(presenca==8) # Desclassificado em doi
 
 # Selecionando apenas os que compareceram nos dois dias
 vestibulandos_presentes <- vestibulandos %>% filter(presenca==4)
+
+# Tratamento de valores NA
+if(!require(tidyverse)) install.packages("tidyverse")
+
+librarary(tidyverse)
+
+# Verificando valores NA
+sapply(vestibulandos_presentes, function(x) sum(is.na(x)))
+
+# Excluindo valores NA
+vestibulandos_presentes <- drop_na(vestibulandos_presentes, NOTA_MT)
+
+sapply(vestibulandos_presentes, function(x) sum(is.na(x)))
+
+# Verificando notas zeros
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_REDACAO==0)
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_COMP1==0)
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_COMP2==0)
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_COMP3==0)
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_COMP4==0)
+nota_zero <- vestibulandos_presentes %>% filter(NU_NOTA_COMP5==0)
+
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_MT==0)
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_CH==0)
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_LC==0)
+nota_zero <- vestibulandos_presentes %>% filter(NOTA_CN==0)
+
+
+redacao_sem_prob <- vestibulandos_presentes %>% filter(TP_STATUS_REDACAO==1)
+
+# Excluir arquivo tratado
+vestibulandos_presentes$presenca <- NULL
+
+# Exportar o arquivo tratado
+write.table(vestibulandos_presentes, file="enem_rs_2019_tratado.csv", sep=",")
