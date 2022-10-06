@@ -54,3 +54,17 @@ enem_rs_2019$CO_ESCOLA <- as.factor(enem_rs_2019$CO_ESCOLA)
 # NaN Not a Number
 sapply(enem_rs_2019, function(x) sum(is.na(x)))
 sapply(enem_rs_2019, function(x) sum(is.nan(x)))
+
+# Filtrar treineiros -> pessoas que fazem a prova somente para treinar seus conhecimentos
+treineiros <- enem_rs_2019 %>% filter(IN_TREINEIRO==1)
+length(treineiros)
+
+# Separando somente os vestibulandos em um novo dataframe
+vestibulandos <- enem_rs_2019 %>% filter(IN_TREINEIRO==0)
+vestibulandos
+
+# Excluir coluna treineiros do dataframe de vestibulandos
+vestibulandos$treineiros <- null
+
+# Exportando o arquivo de treineiros
+write.table(treineiros, file="treineiros.csv", sep=",")
