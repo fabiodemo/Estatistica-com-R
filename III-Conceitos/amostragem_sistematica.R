@@ -13,10 +13,16 @@ setwd("III-Conceitos/dados/")
 enem_2019_tratado <- read.csv("enem_rs_2019_tratado.csv")
 View(enem_2019_tratado)
 
-
+# Filtragem do dataframe
 enem_poa <- enem_2019_tratado %>% filter (NO_MUNICIPIO_RESIDENCIA=="Porto Alegre")
 enem_poa
 
+# Amostragem Sistemática
 set.seed(2)
-amostra <- S.SY(35841, 100)
+amostra <- S.SY(35841, 200)
 amostra
+dim(amostra)
+
+# Relacionando com o dataframe
+amostra_poa_2 <- enem_poa[amostra, ]
+View(amostra_poa_2)
