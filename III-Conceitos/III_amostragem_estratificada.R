@@ -16,11 +16,11 @@ View(enem_2019_tratado)
 #### AMOSTRAGEM ESTRATIFICADA ####
 # Quando dividimos uma população em grupos e depois pegamos uma amostra de cada um desses grupos.
 
-# Amostragem em Santa Maria
+# Amostragem em Porto Alegre
 enem_poa <- enem_2019_tratado %>% filter(NO_MUNICIPIO_RESIDENCIA=="Porto Alegre")
 enem_poa
 
-# Amostragem Estratificada em Santa Maria por Raça 
+# Amostragem Estratificada por Raça em Porto Alegre 
 summary(as.factor(enem_poa$TP_COR_RACA))
 # Função da proporção da tabela
 prop.table(table(enem_poa$TP_COR_RACA))
