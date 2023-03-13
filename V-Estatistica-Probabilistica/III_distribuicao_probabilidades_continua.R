@@ -1,5 +1,5 @@
 ##################################################
-##### DISTRIBIÇÃO DE PROBABILIDADES CONTĨNUA #####
+##### DISTRIBIÇÃO DE PROBABILIDADES CONTÍNUA #####
 ##################################################
 
 # TESTES DE NORMALIDADE - Se a distribuição é normal ou não
