@@ -62,6 +62,6 @@ t.test(NOTA_REDACAO ~ TP_SEXO, colegioy, var.equal=TRUE)
 
 par(mfrow=c(1,4)) # Gráficos na mesma linha
 boxplot(NOTA_CN ~ TP_SEXO, colegioy, ylab="nota de Ciências Naturais", xlab="Gênero")
-boxplot(NOTA_CH ~ TP_SEXO, colegioy, ylab="nota de Ciências Naturais", xlab="Gênero")
-boxplot(NOTA_MT ~ TP_SEXO, colegioy, ylab="nota de Ciências Naturais", xlab="Gênero")
-boxplot(NOTA_REDACAO ~ TP_SEXO, colegioy, ylab="nota de Ciências Naturais", xlab="Gênero")
+boxplot(NOTA_CH ~ TP_SEXO, colegioy, ylab="nota de Ciências Humanas", xlab="Gênero")
+boxplot(NOTA_MT ~ TP_SEXO, colegioy, ylab="nota de Matemática", xlab="Gênero")
+boxplot(NOTA_REDACAO ~ TP_SEXO, colegioy, ylab="nota de Redação", xlab="Gênero")
