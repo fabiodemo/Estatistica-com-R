@@ -90,3 +90,61 @@ matriz_corr <- cor(colegiox[15:19], method="pearson")
 matriz_corr
 
 corrplot(matriz_corr, method="color", type="full", order="original", addCoef.col="black", tl.srt=45)
+
+
+##############################
+###### REGRESSÃO LINEAR ######
+##############################
+
+# MODELO DE REGRESSÃO LINEAR:
+modelo_regressao_MT <- lm(NOTA_MT ~ NOTA_FINAL, colegiox)
+
+modelo_regressao_LC <- lm(NOTA_LC ~ NOTA_FINAL, colegiox)
+
+modelo_regressao_CN <- lm(NOTA_CN ~ NOTA_FINAL, colegiox)
+
+modelo_regressao_CH <- lm(NOTA_CH ~ NOTA_FINAL, colegiox)
+
+# NORMALIDADE DE RESÍDUOS
+# Ho = distribuição normal: p > 0.05
+# Ha = distribuição != normal: p <= 0.05
+shapiro.test(modelo_regressao_MT$residuals) # p um pouco abaixo, não é uma distribuição normal
+shapiro.test(modelo_regressao_LC$residuals) # p acima, então é uma distribuição normal
+shapiro.test(modelo_regressao_CN$residuals) # p abaixo, não é uma distribuição normal
+shapiro.test(modelo_regressao_CH$residuals) # p acima, então é uma distribuição normal
+
+# Matemática e Ciências Naturais: reprovadas no teste de normalidade de resíduos
+
+# ANÁLISE DO MODELO DE REGRESSÃO
+# Ho = coeficiente = 0: p > 0.05 (Modelo inválido)
+# Ha = coeficiente != 0: p <= 0.05 (Modelo de Regressão válido, pois os coeficientes existem)
+summary(modelo_regressao_MT)
+
+ggplot(data = colegiox, mapping = aes(x = NOTA_MT, y = NOTA_FINAL)) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "red") +
+  stat_regline_equation(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = "*plain(\",\")~~")),
+                        label.x = 0, label.y = 0) +
+  theme_classic()
+
+ggplot(data = colegiox, mapping = aes(x = NOTA_LC, y = NOTA_FINAL)) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "red") +
+  stat_regline_equation(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = "*plain(\",\")~~")),
+                        label.x = 0, label.y = 0) +
+  theme_classic()
+
+ggplot(data = colegiox, mapping = aes(x = NOTA_CN, y = NOTA_FINAL)) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "red") +
+  stat_regline_equation(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = "*plain(\",\")~~")),
+                        label.x = 0, label.y = 0) +
+  theme_classic()
+
+ggplot(data = colegiox, mapping = aes(x = NOTA_CH, y = NOTA_FINAL)) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "red") +
+  stat_regline_equation(aes(label = paste(..eq.label.., ..adj.rr.label.., sep = "*plain(\",\")~~")),
+                        label.x = 0, label.y = 0) +
+  theme_classic()
+
