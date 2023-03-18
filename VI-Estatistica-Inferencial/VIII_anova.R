@@ -4,16 +4,21 @@
 
 if(!require(dplyr)) install.packages("dplyr")
 if(!require(rstatix)) install.packages("rstatix")
-install.packages('DescTools',dependencies=TRUE, repos='https://cran.r-project.org/')
+if(!require(DescTools)) install.packages('DescTools',dependencies=TRUE, repos='https://cran.r-project.org/')
+if(!require(ggplot2)) install.packages("ggplot2")
+if(!require(emmeans)) install.packages('emmeans')
 
 library(dplyr)
 library(rstatix)
-library(DescTool)
-
+library(DescTools)
+library(car)
+library(ggplot2)
+library(emmeans)
 
 setwd('VI-Estatistica-Inferencial')
+getwd()
 
-enem2019_tratado <- read.csv('enem_sp_2019_tratado.csv', sep=',', encoding = "UTF-8")
+enem2019_tratado <- read.csv('enem2019_tratado.csv', sep=',', encoding = "UTF-8")
 
 # Objetivo:
 # ANALISAR SE HÁ DIFERENÇA DE NOTA COM RELAÇÃO A RAÇA
@@ -150,4 +155,3 @@ PostHocTest(teste_anova, method = "hsd")
 # TP_SEXO: F(1) = 0.3250 e p = 0.56965    
 # TP_COR_RACA: F(3) = 0.2205 e p = 0.882    
 # TP_SEXO:TP_COR_RACA: F(3) = 2.4290 e p = 0.06858
-
