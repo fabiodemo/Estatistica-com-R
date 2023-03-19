@@ -1,6 +1,6 @@
-##############################
-##### ANOVA DE UMA VIA #######
-##############################
+###################################
+##### Teste de Mann-Whitney #######
+###################################
 
 if(!require(dplyr)) install.packages("dplyr")
 if(!require(rstatix)) install.packages("rstatix")
